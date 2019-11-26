@@ -55,9 +55,7 @@ WHERE favorite_color = 'orange'
 OR favorite_color = 'green';
 
 SELECT * FROM person
-WHERE favorite_color = 'orange'
-OR favorite_color = 'green'
-OR favorite_color LIKE '%blue%';
+WHERE favorite_color IN (‘orange’, ‘green’, ‘blue’);
 
 SELECT * FROM person
 WHERE favorite_color IN ('yellow', 'purple');
@@ -135,14 +133,13 @@ ORDER BY birth_date ASC
 LIMIT 1;
 
 SELECT * FROM employee
-WHERE reports_to = 1;
+WHERE reports_to = 2;
 
-SELECT COUNT(city = 'Lethbridge') FROM employee;
-
-
+SELECT COUNT(*) FROM employee WHERE city = 'Lethbridge';
 
 
-SELECT COUNT(billing_country = 'USA') FROM invoice;
+
+SELECT COUNT(*) FROM invoice WHERE billing_country = 'USA';
 
 SELECT MAX(total) FROM invoice;
 
@@ -151,7 +148,7 @@ SELECT MIN(total) FROM invoice;
 SELECT * FROM invoice
 WHERE total > 5;
 
-SELECT COUNT(total < 5) FROM invoice;
+SELECT COUNT(*) FROM invoice WHERE total < 5;
 
 SELECT COUNT(*) FROM invoice WHERE billing_state IN('CA','TX','AZ');
 
